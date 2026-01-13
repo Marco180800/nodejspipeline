@@ -12,7 +12,7 @@ node {
      }
    }
    stage('Docker Build & Push') {
-     docker.withRegistry('', 'e7ed4a9b-5811-4418-b1b9-d6813882da4f') {
+     docker.withRegistry('https://index.docker.io/v1/', 'docker-hub') {
       def nuestraapp = docker.build("marcomar18/nodejsapp:${gitcommit}", ".")
       nuestraapp.push()
      }
